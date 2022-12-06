@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="a mutant">
+	<title>Design 10</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js" integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V" crossorigin="anonymous"></script>
+
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+	<!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.css"> -->
+
+
+	<style type="text/css">
+		/* #AEC2CB, #484A5E */
+
+		@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+		@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+		@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@300;400&display=swap');
+
+		@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap');
+
+		:root {
+			--primary-color: #3a4052;
+			--main-color: #aec2cb;
+			--second-color: #484a5e;
+		}
+
+		* {
+			box-sizing: border-box;
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+			font-family: 'Roboto', sans-serif;
+/*			overflow-x: hidden;*/
+
+		}
+
+		a {
+			text-decoration: none;
+			color: var(--primary-color);
+		}
+
+		.showcase {
+			height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			color: #fff;
+			padding: 0 !important;
+	/*			z-index: -10;*/
+		}
+
+		.video-container {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+			background: var(--primary-color) url('./https://traversymedia.com/downloads/cover.jpg') no-repeat center
+				center/cover;
+			z-index: -10;
+		}
+
+		.video-container video {
+			min-width: 100%;
+			min-height: 100%;
+		  position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			object-fit: cover;
+		}
+
+		.video-container:after {
+			content: '';
+			z-index: 1;
+			height: 100%;
+			width: 100%;
+			top: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.5);
+			position: absolute;
+		}
+
+		.content {
+			z-index: 2;
+		}
+
+		.content h1 {
+			font-family: 'Oswald', cursive;
+			letter-spacing: 2px;
+		}
+
+		.content h3 {
+			font-weight: lighter;
+/*			font-style: italic;*/
+			font-size: 18px;
+		}
+
+		.btn-book-now {
+			display: inline-block;
+			padding: 10px 30px;
+			background: var(--primary-color);
+			color: #fff;
+			border-radius: 5px;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border: solid #fff 1px;
+			margin-top: 25px;
+			opacity: 0.7;
+		}
+
+		.btn-book-now:hover {
+			transform: scale(0.98);
+		}
+
+		/*--------------------------------------------------------------
+	    # Header
+	    --------------------------------------------------------------*/
+	    .header {
+	      background: rgba(255, 255, 255, 0.7);
+/*		  background: #AEC2CB;*/
+	      transition: all 0.5s;
+	      -webkit-transition: all 0.5s;
+	      -moz-transition: all 0.5s;
+	      z-index: 997;
+	      height: 90px;
+/*	      border-bottom: 1px solid #fff;*/
+		  /*box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+		  -webkit-box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;*/
+	      top: 29px;
+	      display: block;
+	      /* From https://css.glass */
+		  /*background: rgba(255, 255, 255, 0.2);
+		  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		  backdrop-filter: blur(5px);
+		  -webkit-backdrop-filter: blur(5px);
+		  border-bottom: 1px solid rgba(255, 255, 255, 0.3);*/
+
+	    }
+
+	    @media (max-width: 575px) {
+	      .header {
+	        height: 70px;
+	      }
+	    }
+
+	    .header .logo img {
+	      /*max-height: 65px;*/
+	      margin-right: 6px;
+	    }
+
+	    .header .book-now-button,
+	    .header .book-now-button:focus {
+	    	font-family: 'Oswald', sans-serif;
+	      font-size: 21px;
+	      color: #000;
+	/*      background: #0025cc;*/
+	      padding: 8px 20px;
+	      margin-left: 30px;
+		  font-weight: 700;
+	      transition: 0.3s;
+	      -webkit-transition: 0.3s;
+	      -moz-transition: 0.3s;
+	      text-decoration: none;
+	      letter-spacing: 4px;
+	      text-transform: uppercase;
+		  /* From https://css.glass */
+		  background: rgba(255, 255, 255, 0.2);
+		  /*border-radius: 5px;
+		  -webkit-border-radius: 5px;
+		  -moz-border-radius: 5px;*/
+		  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		  -webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		  -moz-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+		  backdrop-filter: blur(5px);
+		  -webkit-backdrop-filter: blur(5px);
+		  -moz-backdrop-filter: blur(5px);
+		  border: 1px solid black;
+
+	    }
+
+	    .header .book-now-button:hover,
+	    .header .book-now-button:focus:hover {
+	      color: #AEC2CB;
+	      /*background: rgba(206, 18, 18, 0.8);*/
+	      /*transform: scale(1.2);*/
+	      /*animation: bookAnimation 1s infinite;
+	      -webkit-animation: bookAnimation 1s infinite;
+	      -moz-animation: bookAnimation 1s infinite;*/
+	      transform: scale(1.1);
+	      -webkit-transform: scale(1.1);
+	      -moz-transform: scale(1.1);
+	      border-color: #AEC2CB;
+	      background: transparent;
+	    }
+
+	    @media only screen and (min-width: 1280px) and (max-width: 1399px) {
+	    	.header .book-now-button {
+	    		font-size: 18px;
+	    	}
+	    }
+
+	    @media only screen and (max-width: 416px) {
+	    	.header .book-now-button {
+	    		font-size: 16px;
+	    	}
+
+	    	.header h1 {
+	    		font-size: 16px;
+	    	}
+	    }
+
+	    @media only screen and (max-width: 388px) {
+	    	.header .book-now-button {
+	    		font-size: 14px;
+	    	}
+
+	    	.header h1 {
+	    		font-size: 14px;
+	    	}
+	    }
+
+	    @media only screen and (max-width: 320px) {
+	    	.header .book-now-button {
+	    		font-size: 12px;
+	    	}
+	    }
+
+		/*--------------------------------------------------------------
+	    # Desktop Navigation
+	    --------------------------------------------------------------*/
+	    @media (min-width: 1280px) {
+	      .navbar {
+	        padding: 0;
+	/*        z-index: 999999;*/
+	      }
+
+	      .navbar ul {
+	        margin: 0;
+	        padding: 0;
+	        display: flex;
+	        list-style: none;
+	        align-items: center;
+	      }
+
+	      .navbar li {
+	        position: relative;
+	      }
+
+	      .navbar>ul>li {
+	        white-space: nowrap;
+	        padding: 10px 0 10px 28px;
+	      }
+
+	      .navbar a,
+	      .navbar a:focus {
+	        display: flex;
+	        align-items: center;
+	        justify-content: space-between;
+	        padding: 0 3px;
+	        /*font-family: var(--font-secondary);*/
+	        font-size: 16px;
+	        font-weight: 300;
+	        color: #000;
+	        white-space: nowrap;
+	        transition: 0.3s;
+	        position: relative;
+	        text-decoration: none;
+	        letter-spacing: 1px;
+	        text-transform: uppercase;
+	/*        mix-blend-mode: difference;*/
+					font-family: 'Oswald', sans-serif;
+	      }
+
+	      .navbar a i,
+	      .navbar a:focus i {
+	        font-size: 12px;
+	        line-height: 0;
+	        margin-left: 5px;
+	      }
+
+	      .navbar>ul>li>a:before {
+	        content: "";
+	        position: absolute;
+	        width: 100%;
+	        height: 2px;
+	        bottom: -6px;
+	        left: 0;
+	        background-color: #7396a5;
+	        visibility: hidden;
+	        width: 0px;
+	        transition: all 0.3s ease-in-out 0s;
+
+	      }
+
+	      .navbar a:hover:before,
+	      .navbar li:hover>a:before,
+	      .navbar .active:before {
+	        visibility: visible;
+	        width: 100%;
+	      }
+
+	      .navbar a:hover,
+	      .navbar .active,
+	      .navbar .active:focus,
+	      .navbar li:hover>a {
+	        color: #000;
+	      }
+
+	      .navbar .dropdown ul {
+	        display: block;
+	        position: absolute;
+	        left: 28px;
+	        top: calc(100% + 30px);
+	        margin: 0;
+	        padding: 10px 0;
+	        z-index: 99;
+	        opacity: 0;
+	        visibility: hidden;
+	        background: #fff;
+	        box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+	        transition: 0.3s;
+	        /*border-radius: 4px;
+	        -webkit-border-radius: 4px;
+	        -moz-border-radius: 4px;*/
+	        font-family: 'Roboto', sans-serif;
+	      }
+
+	      .navbar .dropdown ul li {
+	        min-width: 200px;
+	        font-family: 'Oswald', sans-serif;
+	      }
+
+	      .navbar .dropdown ul a {
+	        padding: 10px 20px;
+	        font-size: 16px;
+	        text-transform: none;
+	        font-weight: lighter;
+	        letter-spacing: 1px;
+	        font-family: 'Oswald', sans-serif !important;
+	      }
+
+	      .navbar .dropdown ul a i {
+	        font-size: 12px;
+	      }
+
+	      .navbar .dropdown ul a:hover,
+	      .navbar .dropdown ul .active:hover,
+	      .navbar .dropdown ul li:hover>a {
+	        color: var(--color-primary);
+	      }
+
+	      .navbar .dropdown:hover>ul {
+	        opacity: 1;
+	        top: 100%;
+	        visibility: visible;
+	      }
+
+	      .navbar .dropdown .dropdown ul {
+	        top: 0;
+	        left: calc(100% - 30px);
+	        visibility: hidden;
+	      }
+
+	      .navbar .dropdown .dropdown:hover>ul {
+	        opacity: 1;
+	        top: 0;
+	        left: 100%;
+	        visibility: visible;
+	      }
+	    }
+
+	    @media (min-width: 1280px) and (max-width: 1366px) {
+	      .navbar .dropdown .dropdown ul {
+	        left: -90%;
+	      }
+
+	      .navbar .dropdown .dropdown:hover>ul {
+	        left: -100%;
+	      }
+	    }
+
+	    @media (min-width: 1280px) {
+
+	      .mobile-nav-show,
+	      .mobile-nav-hide {
+	        display: none;
+	      }
+	    }
+
+	    /*--------------------------------------------------------------
+	    # Mobile Navigation
+	    --------------------------------------------------------------*/
+	      @media (max-width: 1279px) {
+	      .navbar {
+	        position: fixed;
+	        top: 0;
+	        right: -100%;
+	        width: 100%;
+	        max-width: 400px;
+	        border-left: 1px solid #666;
+	        bottom: 0;
+	        transition: 0.3s;
+	        z-index: 9997;
+	      }
+
+	      .navbar ul {
+	        position: absolute;
+	        inset: 0;
+	        padding: 50px 0 10px 0;
+	        margin: 0;
+	        background: rgba(255, 255, 255, 0.9);
+	        overflow-y: auto;
+	        transition: 0.3s;
+	        -webkit-transition: 0.3s;
+	        -moz-transition: 0.3s;
+	        z-index: 9998;
+	      }
+
+	      .navbar a,
+	      .navbar a:focus {
+	        display: flex;
+	        align-items: center;
+	        justify-content: space-between;
+	        padding: 10px 20px;
+	        /*font-family: var(--font-secondary);*/
+	        border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+	        font-size: 21px;
+	        font-weight: 300;
+	        color: #000;
+	        white-space: nowrap;
+	        transition: 0.3s;
+	        -webkit-transition: 0.3s;
+	        -moz-transition: 0.3s;
+	        font-family: 'Oswald', sans-serif;
+/*	        letter-spacing: 1px;*/
+	      }
+
+	      .navbar a i,
+	      .navbar a:focus i {
+	        font-size: 12px;
+	        line-height: 0;
+	        margin-left: 5px;
+	      }
+
+	      .navbar a:hover,
+	      .navbar li:hover>a {
+	        color: #000;
+	      }
+
+	      .navbar .active,
+	      .navbar .active:focus {
+	        color: #000;
+	        border-color: #7396a5;
+	      }
+
+	      .navbar .dropdown ul,
+	      .navbar .dropdown .dropdown ul {
+	        position: static;
+	        display: none;
+	        padding: 10px 0;
+	        margin: 10px 20px;
+	        transition: all 0.5s ease-in-out;
+	        -webkit-transition: all 0.5s ease-in-out;
+	        -moz-transition: all 0.5s ease-in-out;
+	        border: 1px solid #eee;
+	      }
+
+	      .navbar .dropdown>.dropdown-active,
+	      .navbar .dropdown .dropdown>.dropdown-active {
+	        display: block;
+	      }
+
+	      .mobile-nav-show {
+	        color: black;
+	        font-size: 28px;
+	        font-weight: bolder;
+	        cursor: pointer;
+	        line-height: 0;
+	        transition: 0.5s;
+	        -webkit-transition: 0.5s;
+	        -moz-transition: 0.5s;
+	        z-index: 9999;
+	        margin: 0 10px 0 20px;
+	      }
+
+	      .mobile-nav-hide {
+	        color: var(--color-secondary);
+	        font-size: 32px;
+	        cursor: pointer;
+	        line-height: 0;
+	        transition: 0.5s;
+	        -webkit-transition: 0.5s;
+	        -moz-transition: 0.5s;
+	        position: fixed;
+	        right: 20px;
+	        top: 20px;
+	        z-index: 9999;
+	      }
+
+	      .mobile-nav-active {
+	        overflow: hidden;
+	      }
+
+	      .mobile-nav-active .navbar {
+	        right: 0;
+	      }
+
+	      .mobile-nav-active .navbar:before {
+	        content: "";
+	        position: fixed;
+	        inset: 0;
+	        background: rgba(255, 255, 255, 0.8);
+	        z-index: 9996;
+	      }
+	    }
+
+	    /* Featurettes
+			------------------------- */
+
+			.featurette-divider {
+			  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+			}
+
+			/* Thin out the marketing headings */
+			/* rtl:begin:remove */
+			.featurette-heading {
+			  letter-spacing: 3px;
+			  font-family: 'Oswald', sans-serif;
+			  margin-bottom: 28px;
+			}
+
+			.featurette-heading span {
+				font-family: 'Oswald', sans-serif;
+			}
+
+			@media (min-width: 62em) {
+			  .featurette-heading {
+			    margin-top: 7rem;
+			  }
+			}
+
+	    /* Arrow Down */
+		.fa-angles-down {
+			transition: all 0.8s;
+			-webkit-transition: all 0.8s;
+			-moz-transition: all 0.8s;
+			animation: moveDown 8s infinite;
+			-webkit-animation: moveDown 8s infinite;
+			-moz-animation: moveDown 8s infinite;
+			position: relative;
+			font-size: 46px;
+			color: #fff;
+		}
+
+		@keyframes moveDown {
+			/*from {
+				top: 0px;
+			}
+
+			to {
+				top: 24px;
+			}*/
+
+			/*0%   {top: 0px;}
+			25%  {top: 100px;}
+			50%  {top: 50px;}
+			75%  {top: 100px;}
+			100% {top: 0px;}*/
+
+			0% {top: 0px;}
+			10% {top: 100px;}
+			20% {top: 80px;}
+			30% {top: 100px;}
+			40% {top: 80px;}
+			50% {top: 100px;}
+			60% {top: 80px;}
+			70% {top: 100px;}
+			80% {top: 80px;}
+			90% {top: 100px;}
+			100% {top: 0px;}
+		}
+
+		@-webkit-keyframes moveDown {
+			0% {top: 0px;}
+			10% {top: 100px;}
+			20% {top: 80px;}
+			30% {top: 100px;}
+			40% {top: 80px;}
+			50% {top: 100px;}
+			60% {top: 80px;}
+			70% {top: 100px;}
+			80% {top: 80px;}
+			90% {top: 100px;}
+			100% {top: 0px;}
+		}
+
+		@-moz-keyframes moveDown {
+			0% {top: 0px;}
+			10% {top: 100px;}
+			20% {top: 80px;}
+			30% {top: 100px;}
+			40% {top: 80px;}
+			50% {top: 100px;}
+			60% {top: 80px;}
+			70% {top: 100px;}
+			80% {top: 80px;}
+			90% {top: 100px;}
+			100% {top: 0px;}
+		}
+
+		.height-second-header {
+			min-height: 50px;
+			background: black;
+			width: 100%;
+			z-index: 999999;
+			position: absolute;
+		}
+
+		/* Find Out Button */
+		.find-out-button {
+			font-size: 16px;
+			letter-spacing: 2px;
+			background: #AEC2CB;
+			color: white;
+			text-transform: uppercase;
+			text-decoration: none;
+			padding: 15px;
+			font-family: 'Oswald', sans-serif;
+			transition: all 0.3s;
+			-webkit-transition: all 0.3s;
+			-moz-transition: all 0.3s;
+		}
+
+		.find-out-button:hover {
+			background: #484A5E;
+			color: white;
+		}
+
+		/* Margin Center */
+		.margin-center-items {
+			margin: auto;
+/*			width: 60%;*/
+/*			border: 3px solid #73AD21;*/
+/*			padding: 10px;*/
+		}
+
+		/* About Us Icons */
+		.about-us-icons {
+			transition: all 0.3s;
+			-webkit-transition: all 0.3s;
+			-moz-transition: all 0.3s;
+		}
+
+		.about-us-icons:hover {
+			color: #AEC2CB;
+		}
+
+		@media only screen and (max-width: 767px) {
+			.hide-icons-on-mobile {
+				display: none;
+				visibility: hidden;
+			}
+
+			.margin-top {
+				margin-top: 42px;
+			}
+
+		}
+
+		/* Special Packages */
+		 .flex-slider {
+				 font-family: 'Josefin Sans', sans-serif;
+				 box-sizing: border-box;
+				 display: flex;
+				 flex-direction: row;
+				 align-items: middle;
+				 justify-content: center;
+				 min-height: 100vh;
+				 counter-reset: slide;
+			}
+			 @media (max-width: 40em) {
+				 .flex-slider {
+					 min-height: 100vh;
+				}
+			}
+			 .flex-slider .slide {
+				 background-position: 50% 50%;
+				 background-size: cover;
+				 background-repeat: no-repeat;
+				 overflow: hidden;
+				 box-sizing: inherit;
+				 position: relative;
+				 flex-grow: 1;
+				 width: auto;
+				 height: auto;
+				 text-decoration: none;
+				 color: rgba(255, 255, 255, .7);
+				 filter: grayscale(70%);
+				 transition: all 400ms cubic-bezier(0.175, 0.685, 0.2, 1.275);
+				 box-shadow: inset -0.5em 0 0.5em rgba(0, 0, 0, .125);
+			}
+			 .flex-slider .slide .slide-content {
+				 position: absolute;
+				 box-sizing: inherit;
+				 width: 100%;
+				 height: 100%;
+				 background: rgba(0, 0, 0, .3);
+			}
+			 @media (max-width: 40em) {
+				 .flex-slider .slide .slide-content {
+					 width: 100%;
+					 height: 100%;
+				}
+			}
+			 .flex-slider .slide .slide-content .slide-header {
+				 text-transform: uppercase;
+				 font-size: 26px;
+				 font-weight: 400;
+				 letter-spacing: 2px;
+				 font-family: 'Oswald', sans-serif;
+				 margin: 0;
+				 padding: 1em;
+				 background: rgba(174, 194, 203, .5);
+			}
+			 /*.flex-slider .slide .slide-content .slide-header:before {
+				 counter-increment: slide;
+				 content: counter(slide);
+			}*/
+			 .flex-slider .slide .slide-content .slide-body p {
+				 padding: 1em;
+				 width: 50vw;
+				 font-family: 'Roboto', sans-serif;
+				 font-size: 21px;
+				 font-weight: lighter;
+			}
+			 @media (max-width: 40em) {
+				 .flex-slider .slide .slide-content .slide-body {
+					 width: auto;
+				}
+			}
+			 .flex-slider .slide:hover, .flex-slider .slide:focus, .flex-slider .slide:active {
+				 color: rgba(255, 255, 255, .8);
+				 flex-grow: 3;
+				 filter: grayscale(0%);
+				 transition: all 400ms cubic-bezier(0.175, 0.685, 0.2, 1.275);
+			}
+			 @media (max-width: 40em) {
+				 .flex-slider .slide:hover, .flex-slider .slide:focus, .flex-slider .slide:active {
+					 flex-grow: 6;
+				}
+			}
+			 .flex-slider .slide:hover > .slide-content > .slide-body, .flex-slider .slide:focus > .slide-content > .slide-body, .flex-slider .slide:active > .slide-content > .slide-body {
+				 width: auto;
+			}
+			 @media (max-width: 40em) {
+				 .flex-slider .slide:hover > .slide-content > .slide-body, .flex-slider .slide:focus > .slide-content > .slide-body, .flex-slider .slide:active > .slide-content > .slide-body {
+					 height: auto;
+				}
+			}
+			 .flex-slider .slide.slide-1 {
+			/*	 background: #e91e63;*/
+				 background: url('https://images.pexels.com/photos/1589820/pexels-photo-1589820.jpeg?auto=compress&cs=tinysrgb&w=1600') no-repeat;
+				 background-size: cover;
+				 background-position: center;
+			}
+			 .flex-slider .slide.slide-2 {
+/*				 background: #3f51b5;*/
+				background: url('https://images.unsplash.com/photo-1600452556550-9ff29bb0e6cf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80') no-repeat;
+				background-size: cover;
+				background-position: center;
+			}
+			 .flex-slider .slide.slide-3 {
+/*				 background: #8bc34a;*/
+				background: url('https://images.unsplash.com/photo-1580058571655-895ebc469e6a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80') no-repeat;
+				background-size: cover;
+				background-position: center;
+			}
+			 .flex-slider .slide.slide-4 {
+/*				 background: #ffc107;*/
+				background: url('https://images.unsplash.com/photo-1506003094589-53954a26283f?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80') no-repeat;
+				background-position: center;
+				background-size: cover;
+			}
+			 @media (max-width: 40em) {
+				 .flex-slider {
+					 flex-direction: column;
+				}
+			}
+
+			/* Box Shadow */
+			.box-shadow-main {
+				box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+			}
+
+			/* Split Background */
+			.split-background {
+				background: linear-gradient(to left, #AEC2CB 70%, #fff 30%);
+/*				height: auto;*/
+/*				padding-top: 1px;*/
+/*				margin-bottom: 45px;*/
+			}
+
+			.split-background-2 {
+				background: linear-gradient(to right, #aec2cb 70%, #fff 30%);
+/*				height: auto;*/
+/*				padding-top: 1px;*/
+			}
+
+			/* Address Header */
+			#address-header {
+				transition: all 0.5s;
+				-webkit-transition: all 0.5s;
+				-moz-transition: all 0.5s;
+			}
+
+
+			/* Card */
+			.card {
+				border-radius: 0px;
+				-webkit-border-radius: 0px;
+				-moz-border-radius: 0px;
+				border: none;
+				margin: 0 !important;
+				padding: 0 !important;
+			}
+
+			.card .card-body {
+				border: 1px solid white;
+			}
+
+			.card img {
+				border-radius: 0px;
+				-webkit-border-radius: 0px;
+				-moz-border-radius: 0px;
+				border: 1px solid white;
+			}
+
+			.card .card-body .card-title {
+				font-weight: 600;
+				font-family: 'Oswald', sans-serif;
+				font-size: 36px;
+			}
+
+			.card .card-body .card-text {
+				height: 100%;
+				font-family: 'Roboto', sans-serif;
+				font-size: 21px;
+				font-weight: lighter;
+			}
+
+
+			/* Two Picture */
+			figure.snip1190 {
+			  font-family: 'Roboto', sans-serif;
+			  color: #fff;
+			  position: relative;
+			  overflow: hidden;
+			/*  margin: 10px;*/
+			  width: 100%;
+			  height: 100%;
+			/*  min-width: 40%;*/
+			/*  min-width: 100%;*/
+			/*  max-width: 310px;*/
+			/*  max-height: 220px;*/
+			/*  width: 100%;*/
+			  margin: 0;
+			  padding: 0;
+			  background: #000000;
+			  text-align: center;
+			  z-index: 0;
+			}
+			figure.snip1190 * {
+			  -webkit-box-sizing: padding-box;
+			  -moz-box-sizing: padding-box;
+			  box-sizing: padding-box;
+			  -webkit-transition: all 0.3s ease-in-out;
+			  -moz-transition: all 0.3s ease-in-out;
+			  transition: all 0.3s ease-in-out;
+			}
+			figure.snip1190 img {
+			  opacity: 0.8;
+			  width: 100%;
+			}
+			figure.snip1190 figcaption {
+			  bottom: 0;
+			  display: block;
+			  left: 0;
+			  position: absolute;
+			  right: 0;
+			  top: 0;
+			}
+			figure.snip1190 h2 {
+				font-family: 'Oswald', sans-serif;
+				letter-spacing: 2px;
+			  font-weight: 400;
+			  left: 0;
+			  right: 0;
+/*			  letter-spacing: -1px;*/
+			  margin: 0 auto;
+			  position: absolute;
+			  text-transform: uppercase;
+			  bottom: 50%;
+			  -webkit-transform: translateY(50%);
+			  transform: translateY(50%);
+			}
+			figure.snip1190 h2 span {
+			  font-weight: 800;
+			  letter-spacing: 2px;
+			}
+			figure.snip1190 p {
+			  position: absolute;
+			  top: 0;
+			  left: 0;
+			  right: 0;
+			  margin: 0 auto;
+			  top: 50%;
+			  opacity: 0;
+			  font-size: 14px;
+			  -webkit-transform: translateY(-20%) scale(0.7);
+			  transform: translateY(-20%) scale(0.7);
+			  letter-spacing: 2px;
+			}
+			figure.snip1190 p a {
+				font-size: 21px;
+				font-weight: lighter;
+				padding: 10px;
+				border: 1px solid white;
+				width: auto !important;
+				text-decoration: none;
+				text-transform: uppercase;
+				color: white;
+				margin-left: 24px;
+				margin-right: 24px;
+				font-family: 'Oswald', sans-serif;
+				/* From https://css.glass */
+				background: rgba(255, 255, 255, 0.2);
+/*				border-radius: 16px;*/
+				box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+				-webkit-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+				-moz-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+				backdrop-filter: blur(5px);
+				-webkit-backdrop-filter: blur(5px);
+				-moz-backdrop-filter: blur(5px);
+				border: 1px solid rgba(255, 255, 255, 0.3);
+				z-index: 1;
+			}
+			figure.snip1190 p a:hover {
+				color: var(--main-color);
+			}
+			figure.snip1190 .square {
+			  height: 78px;
+			  width: 78px;
+			  overflow: hidden;
+			  position: absolute;
+			  top: 50%;
+			  left: 50%;
+			  content: '';
+			  -webkit-transform: rotate(45deg) translate(-50%, -50%);
+			  transform: rotate(45deg) translate(-50%, -50%);
+			  -webkit-transform-origin: 0 0;
+			  transform-origin: 0 0;
+			}
+			figure.snip1190 .square:before,
+			figure.snip1190 .square:after,
+			figure.snip1190 .square div:before,
+			figure.snip1190 .square div:after {
+			  background-color: #ffffff;
+			  position: absolute;
+			  content: "";
+			  display: block;
+			  -webkit-transition: all 0.4s ease-in-out;
+			  transition: all 0.4s ease-in-out;
+			}
+			figure.snip1190 .square:before,
+			figure.snip1190 .square:after {
+			  width: 65%;
+			  height: 2px;
+			}
+			figure.snip1190 .square div:before,
+			figure.snip1190 .square div:after {
+			  width: 2px;
+			  height: 65%;
+			}
+			figure.snip1190 .square:before,
+			figure.snip1190 .square div:before {
+			  left: 0;
+			  top: 0;
+			}
+			figure.snip1190 .square:after,
+			figure.snip1190 .square div:after {
+			  bottom: 0;
+			  right: 0;
+			}
+			figure.snip1190 a {
+			  left: 0;
+			  right: 0;
+			  top: auto;
+			  bottom: auto;
+			  position: absolute;
+			}
+			figure.snip1190:hover img,
+			figure.snip1190.hover img {
+			  opacity: 0.25;
+			  -webkit-transform: scale(1.1);
+			  transform: scale(1.1);
+			}
+			figure.snip1190:hover h2,
+			figure.snip1190.hover h2 {
+			  opacity: 1;
+			  -webkit-transform: translateY(0px);
+			  transform: translateY(0px);
+			}
+			figure.snip1190:hover p,
+			figure.snip1190.hover p {
+			  opacity: 1;
+			  -webkit-transform: translateY(0px) scale(1);
+			  transform: translateY(0px) scale(1);
+			}
+			figure.snip1190:hover .square:before,
+			figure.snip1190.hover .square:before {
+			  width: 38%;
+			}
+			figure.snip1190:hover .square div:before,
+			figure.snip1190.hover .square div:before {
+			  height: 38%;
+			}
+			figure.snip1190:hover .square:after,
+			figure.snip1190.hover .square:after {
+			  width: 55%;
+			}
+			figure.snip1190:hover .square div:after,
+			figure.snip1190.hover .square div:after {
+			  height: 55%;
+			}
+
+
+			/* Testimonial Sections */
+			.testimonial-sections {
+				margin-top: -7vh; z-index: 2; position: relative;
+				background: #fbf0ec;
+				padding-bottom: 25px;
+				margin-bottom: 25px;
+			}
+
+			.testimonial-sections h3 {
+				font-family: 'Oswald', sans-serif;
+			}
+
+			.testimonial-quotes {
+				font-size: 84px; border-radius: 50%;
+				padding: 10px 20px;
+				border: 1px solid white;
+				background: #EDC9BD;
+				color: #6A3332;
+			}
+
+			@media only screen and (max-width: 995px) {
+				.testimonial-sections {
+					margin-top: -2vh;
+				}
+			}
+
+			@media only screen and (max-width: 370px) {
+				.testimonial-sections {
+					margin-top: 0;
+				}
+			}
+
+/*			.fa-heart{color: rgba(255, 230, 0, 0.959);font-size: 30px}*/
+			.testimonial-cards {height: 320px;padding: 10px 20px;border: none;
+				box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+				-webkit-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+				-moz-box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+				background: white;
+				max-width: 100%;
+			}
+
+			.testimonial{font-size: 0.9rem;line-height: 1.4rem;font-weight: 500; font-family: 'Roboto', sans-serif;}
+			.active-star{color: #FBC02D;margin-bottom: 8px}
+			.active-star:hover{color: #F9A825;cursor: pointer}
+			.profile{padding-top: 10px}.name{font-weight: 700}
+			.designation{font-size: 0.84rem;font-weight: 600}
+			.owl-carousel{margin-bottom: 15px}
+			.owl-carousel:hover {cursor: grab;}
+			.owl-carousel .owl-item {padding-bottom: 10px;}
+			.owl-carousel .owl-stage-outer{padding: 40px 10px;height: 380px}
+			.owl-carousel .owl-item img{width: 45px !important;height: 45px;border-radius: 50%;object-fit: cover; margin-left: 15px;}
+			.owl-carousel .owl-item .names-and-company {text-align: left; margin-left: 10px;}
+			.owl-carousel .owl-item .names-and-company .name {font-family: 'OSwald', sans-serif;}
+			.owl-theme .owl-nav [class*='owl-']{border-radius: 50% !important;background: inherit !important;border: 3px solid #bbb;color: #bbb !important}
+			.owl-theme .owl-nav [class*='owl-']:hover{border: 3px solid #1010ca;color: #1010ca !important}
+			@media(max-width: 575.5px){.container{margin: 0px;padding: 20px}}
+
+			.review-source {
+				width: 100px;
+				height: auto;
+				background: #0F9D58;
+				-ms-transform: rotate(-90deg);
+				transform: rotate(-90deg);
+				-webkit-transform: rotate(-90deg);
+				padding: 5px 10px;
+				margin-left: -75px;
+				color: white;
+			}
+
+			@media only screen and (max-width: 1199px) {
+				.owl-prev {
+					width: 50px;
+					height: 50px;
+					position: relative;
+					display: none;
+				}
+
+				.owl-prev i {
+/*					line-height: -80%;*/
+						margin-top: 13px;
+						text-align: center;
+						justify-content: center;
+						align-items: center;
+						align-content: center;
+				}
+
+				.owl-next {
+					width: 50px;
+					height: 50px;
+					position: relative;
+					display: none;
+					/*right: auto !important;
+					left: 95%;
+					margin-top: -50px;*/
+				}
+
+				.owl-next i {
+					margin-top: 13px;
+				}
+			}
+
+
+			/* Footer */
+			.form-control {
+			  background: #212529;
+			  border-color: #545454;
+			}
+
+			.form-control:focus {
+			  background: #212529;
+			}
+
+			footer {
+			  background: #222329;
+			}
+
+			footer .footer-about {
+				color: #ccc !important;
+				letter-spacing: 1px;
+			}
+
+			footer .footer-copyright {
+				color: #ccc !important;
+				letter-spacing: 1px;
+			}
+
+			footer .list-unstyled a {
+				color: #ccc !important;
+				letter-spacing: normal;
+			}
+
+			footer .list-unstyled a:hover {
+				color: #fff !important;
+			}
+
+			footer .footer-newsletter {
+				color: #ccc !important;
+				font-size: 16px !important;
+			}
+
+
+	</style>
+</head>
+<body>
+
+	<div id="address-header" style="background: #AEC2CB; min-height: 29px; top: 0; bottom: auto; position: fixed; width: 100%; z-index: 997;">
+    <div class="container-fluid">
+    	<div class="row">
+        <div class="col">
+          <!-- <a href="#" style="font-size: 18px; text-align: left;"><i class="fa-regular fa-envelope"></i></a> -->
+          <a href="#" style="font-size: 14px; font-weight: 300; color: black; line-height: 80%;"><i class="fa-solid fa-location-dot"></i> <span style="font-size: 12px; letter-spacing: 1px; line-height: 100%; font-family: 'Oswald', sans-serif;">Best Deals Asia Group</span></a>
+        </div>
+
+        <div class="col" style="font-family: 'Oswald', sans-serif; right: 0; left: auto; text-align: right;">
+        	<a href="#" style="font-size: 14px; color: black; line-height: 80%;">
+        		<i class="fa-solid fa-phone"></i> 
+        		<span style="font-size: 12px; letter-spacing: 1px; font-family: 'Oswald', sans-serif;">+62 878111 222 333</span>
+        	</a>
+        </div>
+    	</div>
+    </div>
+  </div>
+
+
+
+	<header id="header" class="header fixed-top d-flex align-items-center">
+	    <div class="container-fluid d-flex align-items-center justify-content-between">
+	      <a href="#" class="logo d-flex align-items-center me-auto me-lg-0">
+	        <!-- <img style="max-height: 65px;" class="" src="" alt=""> -->
+	        <h1 style="font-size: 24px; font-family: 'Oswald', sans-serif; font-weight: lighter;">Design <span>10.</span></h1>
+
+	      </a>
+
+	      <nav id="navbar" class="navbar">
+	        <ul>
+	          <li><a href="#">Home</a></li>
+	          <li><a href="#about-us">About</a></li>
+	          <li><a href="#portfolio">Room Type</a></li>
+	          <li><a href="#special-packages">Special Package</a></li>
+	          <li><a href="#our-gallery">Gallery</a></li>
+	          <li><a href="#contact-us">Contact Us</a></li>
+	          <li class="dropdown"><a href="#"><span style="font-family: 'Oswald', sans-serif;">Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+	            <ul>
+	              <li><a href="#">Drop Down 1</a></li>
+	              <li class="dropdown"><a href="#"><span style="font-family: 'Oswald', sans-serif;">Deep Drop Down</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+	                <ul>
+	                  <li><a href="#">Deep Drop Down 1</a></li>
+	                  <li><a href="#">Deep Drop Down 2</a></li>
+	                  <li><a href="#">Deep Drop Down 3</a></li>
+	                  <li><a href="#">Deep Drop Down 4</a></li>
+	                  <li><a href="#">Deep Drop Down 5</a></li>
+	                </ul>
+	              </li>
+	              <li><a href="#">Drop Down 2</a></li>
+	              <li><a href="#">Drop Down 3</a></li>
+	              <li><a href="#">Drop Down 4</a></li>
+	            </ul>
+	          </li>
+	        </ul>
+	      </nav>
+
+	      <a class="book-now-button" href="#">Book Now</a>
+	      <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+	      <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+
+	    </div>
+  	</header>
+
+	<section class="showcase">
+		<div class="video-container">
+			<video src="https://traversymedia.com/downloads/video.mov" autoplay muted loop></video>
+		</div>
+		<div class="content">
+			<h1>Book now. Enjoy later.</h1>
+			<h3>Lorem Ipsum Dolor Sit Amet</h3>
+			<br/>
+			<a href="#about-us" class=""><i class="fa-solid fa-angles-down"></i></a>
+
+		</div>
+	      	<!-- <a style="z-index: 9999;" href="#"></a> -->
+	</section>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-1 margin-center-items">
+				<center>
+					<div style="display: block;" class="hide-icons-on-mobile">
+						<br/>
+						<br/>
+						<a href="#" style="font-size: 28px;"><i class="about-us-icons fa-brands fa-facebook-f"></i></a>
+						<br/>
+						<br/>
+						<a href="#" style="font-size: 28px;"><i class="about-us-icons fa-brands fa-instagram"></i></a>
+						<br/>
+						<br/>
+						<a href="#" style="font-size: 28px;"><i class="about-us-icons fa-brands fa-youtube"></i></a>
+						<br/>
+						<br/>
+						<a href="#" style="font-size: 28px;"><i class="about-us-icons fa-brands fa-tiktok"></i></a>
+						<br/>
+						<br/>
+					</div>
+				</center>
+			</div>
+			<div class="col-md-4 margin-center-items" style="flex-wrap: wrap;">
+				<br/>
+				<br/>
+				<h3 style="font-weight: bolder; font-size: 31px; font-family: 'Oswald', sans-serif;">
+					Experience Bali Nature & Luxury Like No Others
+				</h3>
+				<br/>
+				<br/>
+				<!-- <h6 style="font-family: 'Roboto', sans-serif; font-weight: lighter; font-size: 21px;">Amazing beachfront resort with romantic sunset</h6> -->
+				<br/>
+				<h6 style="font-family: 'Roboto', sans-serif; font-weight: lighter; font-size: 21px; margin: auto;">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam tempor tincidunt risus, eu mollis mi porttitor sit amet. Quisque ex metus, tristique sed ex sed, iaculis accumsan leo. Quisque mauris tortor, convallis in quam et, egestas pretium tellus.</h6>
+				<br/>
+				<br/>
+				<a class="find-out-button" href="#">Find Out More <i class="fa-regular fa-circle-right"></i></a>
+				<br/>
+				<br/>
+				<br/>
+			</div>
+			<div class="col-md-7" style="margin: 0 !important; padding: 0 !important;">
+				<!-- <h3>Hello World</h3> -->
+				<img class="img-fluid" src="https://images.pexels.com/photos/1167021/pexels-photo-1167021.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" style="border: 1px solid white;">
+			</div>
+		</div>		
+	</div>
+
+	<div class="wrapper">
+  <div class="flex-slider"><a class="slide slide-1" href="#0">
+      <div class="slide-content">
+        <h3 class="slide-header">Wedding</h3>
+        <div class="slide-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mollis sed diam sed egestas. Donec quis neque nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div></a><a class="slide slide-2" href="#0">
+      <div class="slide-content">
+        <h3 class="slide-header">Glamping</h3>
+        <div class="slide-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mollis sed diam sed egestas. Donec quis neque nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div></a><a class="slide slide-3" href="#0">
+      <div class="slide-content">
+        <h3 class="slide-header">Activities</h3>
+        <div class="slide-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mollis sed diam sed egestas. Donec quis neque nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div></a><a class="slide slide-4" href="#0">
+      <div class="slide-content">
+        <h3 class="slide-header">Spa</h3>
+        <div class="slide-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mollis sed diam sed egestas. Donec quis neque nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+      </div></a></div>
+	</div>
+
+	<!-- Testing -->
+	<div style="margin-top: 50px; margin-bottom: 50px;">
+
+		<div class="container">
+			<div class="row featurette" style="padding-top: 50px; padding-bottom: 50px;">
+		      <div class="col-md-7">
+		        <h2 class="featurette-heading fw-normal lh-1">Romantic <span class="text-muted">Dinner.</span></h2>
+		        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mollis sed diam sed egestas. Donec quis neque nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		        <br/>
+					<a class="find-out-button" href="#">Book Now <i class="fa-regular fa-circle-right"></i></a>
+		      </div>
+		      <div class="col-md-5">
+		        <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> -->
+		      	<img class="box-shadow-main margin-top bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="https://images.pexels.com/photos/5911136/pexels-photo-5911136.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+
+
+		      </div>
+		  </div>
+		</div>
+
+	    <!-- <hr class="featurette-divider"> -->
+
+	  <div class="split-background">
+	    <div class="container">
+		    <div class="row featurette" style="padding-top: 50px; padding-bottom: 50px;">
+		      <div class="col-md-7 order-md-2">
+		        <h2 class="featurette-heading fw-normal lh-1">Romantic <span class="text-muted">Gateway.</span></h2>
+		        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mollis sed diam sed egestas. Donec quis neque nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		      </div>
+		      <div class="col-md-5 order-md-1">
+		        <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> -->
+			      <img class="box-shadow-main margin-top bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="https://images.unsplash.com/photo-1586411168260-4f55622868c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80">
+		      </div>
+		    </div>
+	  	</div>
+	  </div>
+
+	    <!-- <hr class="featurette-divider"> -->
+
+	  <div class="split-background-2">
+	    <div class="container">
+		    <div class="row featurette" style="padding-top: 50px; padding-bottom: 50px;">
+		      <div class="col-md-7">
+		        <h2 class="featurette-heading fw-normal lh-1">Pre-Wedding <span class="text-muted">Photoshot.</span></h2>
+		        <p class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mollis sed diam sed egestas. Donec quis neque nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		      </div>
+		      <div class="col-md-5">
+		        <!-- <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" width="500" height="500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#eee"/><text x="50%" y="50%" fill="#aaa" dy=".3em">500x500</text></svg> -->
+			      <img class="box-shadow-main margin-top bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto" src="https://images.pexels.com/photos/13955122/pexels-photo-13955122.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1">
+		      </div>
+		    </div>
+	  	</div>
+	  </div>
+
+  </div>
+
+
+  <!-- Card -->
+	<div class="card-group">
+		<div class="card">
+		  <img src="https://images.pexels.com/photos/1488318/pexels-photo-1488318.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top" alt="...">
+		  <div class="card-body" style="background: var(--main-color);">
+		    <h5 class="card-title">Enjoy Your Stay with Us.</h5>
+		    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mollis sed diam sed egestas. Donec quis neque nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		  </div>
+		</div>
+		<div class="card">
+		  <div class="card-body" style="background: #eee;">
+		    <h5 class="card-title">Book Now, Stay Later.</h5>
+		    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mollis sed diam sed egestas. Donec quis neque nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		  </div>
+		  <img src="https://images.pexels.com/photos/8230028/pexels-photo-8230028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-bottom" alt="...">
+		</div>
+		<div class="card">
+		  <img src="https://images.unsplash.com/photo-1615880484746-a134be9a6ecf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80" class="card-img-top" alt="...">
+
+		  <div class="card-body" style="background: #d3ecdd;">
+		    <h5 class="card-title">Work Hard, Play Hard.</h5>
+		    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris mollis sed diam sed egestas. Donec quis neque nisi. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+		  </div>
+		</div>
+	</div>
+
+	<br/>
+	<br/>
+
+	<!-- Two Pictures -->
+	<div style="margin-left: 24px; margin-right: 24px !important;">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-lg-6" style="padding: 0 !important; margin: 0 !important;">
+					<figure class="snip1190">
+					  <img src="https://images.pexels.com/photos/1573007/pexels-photo-1573007.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt=""/>
+					  <figcaption>
+					    <div class="square">
+					      <div></div>
+					    </div>
+					    <h2>Wedding<span>.</span></h2>
+					    <p>Lorem ipsum dolor sit amet
+					    <br/>
+					    <a href="#">More Details</a>
+					    </p>
+					  </figcaption>
+					  <!-- <a href="#">Testing</a> -->
+					</figure>
+				</div>
+				<div class="col-lg-6" style="padding: 0 !important; margin: 0 !important;">
+					<figure class="snip1190">
+					  <img src="https://images.pexels.com/photos/6271727/pexels-photo-6271727.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="sample62"/>
+					  <figcaption>
+					    <div class="square">
+					      <div></div>
+					    </div>
+					    <h2>Glamping<span>.</span></h2>
+					    <p>Quis autem vel eum
+					    <br/>
+					    <a href="#">More Details</a>
+					    </p>
+					  </figcaption>
+					  <a href="#"></a>
+					</figure>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container testimonial-sections">
+		<div style="min-height: 30vh; text-align: center;">
+			<br/>
+		  <span class="testimonial-quotes icon fa fa-quote-left"></span>
+			<br/>
+			<br/>
+			<h3>What Are They Saying?</h3>
+			<br/>
+
+			<div class="testimonial-containers rounded">
+				<div class="owl-carousel owl-theme">
+					<div class="owl-item">
+						<div class="testimonial-cards d-flex flex-column">
+							<div class="mt-2">
+								<span class="fas fa-star active-star"></span>
+								<span class="fas fa-star active-star"></span>
+								<span class="fas fa-star active-star"></span>
+								<span class="fas fa-star active-star"></span>
+								<span class="fas fa-star-half-alt active-star"></span>
+							</div>
+							<div class="review-source">
+								Google
+							</div>
+							<div class="main font-weight-bold pb-2 pt-1">Great Service</div>
+							<div class="testimonial"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni dolores molestias veniam inventore itaque eius iure omnis, temporibus culpa id. </div>
+							<!-- <br/> -->
+							<div class="d-flex flex-row profile pt-4 mt-auto"> 
+								<img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" class="rounded-circle"> 
+								<div class="names-and-company d-flex flex-column pl-2"> 
+									<div class="name">Jhon Doe</div> 
+									<p class="text-muted designation">CEO of My Company</p> 
+								</div> 
+							</div>
+						</div>
+					</div>
+					<div class="owl-item">
+						<div class="testimonial-cards d-flex flex-column">
+							<div class="mt-2"> 
+								<span class="fas fa-star active-star"></span> 
+								<span class="fas fa-star active-star"></span> 
+								<span class="fas fa-star active-star"></span> 
+								<span class="fas fa-star active-star"></span> 
+								<span class="fas fa-star-half-alt active-star"></span> 
+							</div>
+							<div class="review-source">
+								Google
+							</div> 
+							<div class="main font-weight-bold pb-2 pt-1">Great Service</div> 
+							<div class="testimonial"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni dolores molestias veniam inventore itaque eius iure omnis, temporibus culpa id. </div>
+							<div class="d-flex flex-row profile pt-4 mt-auto"> 
+								<img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" class="rounded-circle"> 
+								<div class="names-and-company d-flex flex-column pl-2"> 
+									<div class="name">Robert Junior</div> 
+									<p class="text-muted designation">CEO of My Company</p> 
+								</div> 
+							</div> 
+						</div> 
+					</div> 
+					<div class="owl-item"> 
+						<div class="testimonial-cards d-flex flex-column"> 
+							<div class="mt-2"> 
+								<span class="fas fa-star active-star"></span> 
+								<span class="fas fa-star active-star"></span> 
+								<span class="fas fa-star active-star"></span> 
+								<span class="fas fa-star active-star"></span> 
+								<span class="fas fa-star-half-alt active-star"></span> 
+							</div>
+							<div class="review-source">
+								Google
+							</div> 
+							<div class="main font-weight-bold pb-2 pt-1">Great Service</div> 
+							<div class="testimonial"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni dolores molestias veniam inventore itaque eius iure omnis, temporibus culpa id. </div>
+							<div class="d-flex flex-row profile pt-4 mt-auto"> 
+								<img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" class="rounded-circle"> 
+								<div class="names-and-company d-flex flex-column pl-2"> 
+									<div class="name">Justin</div>
+									 <p class="text-muted designation">CEO of My Company</p> 
+								</div> 
+							</div> 
+						</div> 
+					</div>
+					<div class="owl-item"> 
+						<div class="testimonial-cards d-flex flex-column"> 
+							<div class="mt-2"> 
+								<span class="fas fa-star active-star"></span> 
+								<span class="fas fa-star active-star"></span>
+								<span class="fas fa-star active-star"></span> 
+								<span class="fas fa-star active-star"></span> 
+								<span class="fas fa-star-half-alt active-star"></span> 
+							</div> 
+							<div class="review-source">
+								Google
+							</div>
+							<div class="main font-weight-bold pb-2 pt-1">Great Service</div> 
+							<div class="testimonial"> Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni dolores molestias veniam inventore itaque eius iure omnis, temporibus culpa id. </div> 
+							<div class="d-flex flex-row profile pt-4 mt-auto"> 
+								<img src="https://images.unsplash.com/photo-1531427186611-ecfd6d936c79?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=60" alt="" class="rounded-circle"> 
+								<div class="names-and-company d-flex flex-column pl-2"> 
+									<div class="name">Megan</div> 
+									<p class="text-muted designation">CEO of My Company</p> 
+								</div> 
+							</div> 
+						</div> 
+					</div> 
+				</div> 
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Footer -->
+<div style="margin: 0 !important; padding: 0 !important; background: #222329;">
+	<div class="container-fluid">
+
+	    <!-- FOOTER -->
+	    <footer class="w-100 py-4 flex-shrink-0" style="margin: 0 !important; padding: 0 !important;">
+	        <div class="container py-4">
+	            <div class="row gy-4 gx-5">
+	                <div class="col-lg-3 col-md-6">
+	                    <h5 class="h1 text-white" style="font-family: 'Oswald', sans-serif;">Design 10.</h5>
+	                    <p class="footer-about small">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+	                    <p class="footer-copyright small mb-0">&copy; Copyrights. All rights reserved. <a class="text-primary" href="#"></a></p>
+	                </div>
+	                <div class="col-lg-2 col-md-3">
+	                    <h5 class="text-white mb-3" style="font-family: 'Oswald', sans-serif; letter-spacing: 2px;">About</h5>
+	                    <ul class="list-unstyled text-muted">
+	                        <li><a href="#">Home</a></li>
+	                        <li><a href="#">About</a></li>
+	                        <li><a href="#">Get started</a></li>
+	                        <li><a href="#">FAQ</a></li>
+	                    </ul>
+	                </div>
+	                <div class="col-lg-2 col-md-3">
+	                    <h5 class="text-white mb-3" style="font-family: 'Oswald', sans-serif; letter-spacing: 2px;">Service</h5>
+	                    <ul class="list-unstyled text-muted">
+	                        <li><a href="#">Home</a></li>
+	                        <li><a href="#">About</a></li>
+	                        <li><a href="#">Get started</a></li>
+	                        <li><a href="#">FAQ</a></li>
+	                    </ul>
+	                </div>
+	                <div class="col-lg-2 col-md-3">
+	                    <h5 class="text-white mb-3" style="font-family: 'Oswald', sans-serif; letter-spacing: 2px;">Follow Us</h5>
+	                    <ul class="list-unstyled text-muted">
+	                        <li><a href="#">Home</a></li>
+	                        <li><a href="#">About</a></li>
+	                        <li><a href="#">Get started</a></li>
+	                        <li><a href="#">FAQ</a></li>
+	                    </ul>
+	                </div>
+	                <div class="col-lg-3 col-md-6">
+	                    <h5 class="text-white mb-3" style="font-family: 'Oswald', sans-serif; font-size: 24px; letter-spacing: 2px;">Newsletter</h5>
+	                    <p class="footer-newsletter small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+	                    <form action="#">
+	                        <div class="input-group mb-3">
+	                            <input class="form-control" type="text" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2">
+	                            <button class="btn btn-primary" id="button-addon2" type="button"><i class="fas fa-paper-plane"></i></button>
+	                        </div>
+	                    </form>
+	                </div>
+	            </div>
+
+
+	            <hr style="background: white; color: white;"/>
+
+	            <div style="color: #ccc; letter-spacing: 1px; text-align: right;">
+	            	<h6 style="font-weight: lighter !important;">&copy; Copyrights. All rights reserved.</h6>
+	            </div>
+
+
+	        </div>
+	    </footer>
+
+	  </div>
+	</div>
+
+	<script type="text/javascript">
+	  /* Demo purposes only */
+	  $(".hover").mouseleave(
+	    function () {
+	      $(this).removeClass("hover");
+	    }
+	  );
+	</script>
+
+	<script type="text/javascript">
+	$(document).ready(function () {
+	    var silder = $(".owl-carousel");
+	    silder.owlCarousel({
+	        autoPlay: false,
+	        items: 1,
+	        center: false,
+	        nav: true,
+	        margin: 40,
+	        dots: false,
+	        loop: true,
+	        navText: ["<i class='fa fa-arrow-left' aria-hidden='true'></i>", "<i class='fa fa-arrow-right' aria-hidden='true'></i>"],
+	        responsive: {
+	            0: {
+	                items: 1,
+	            },
+	            575: { items: 1 },
+	            768: { items: 2 },
+	            991: { items: 3 },
+	            1200: { items: 4 }
+	        }
+	    });
+	});
+	</script>
+
+	<script type="text/javascript">
+		var prevScrollpos = window.pageYOffset;
+		window.onscroll = function() {
+		var currentScrollPos = window.pageYOffset;
+		  if (prevScrollpos > currentScrollPos) {
+		    document.getElementById("address-header").style.top = "0";
+		    document.querySelector("header").style.top = "29px";
+		  } else {
+		    document.getElementById("address-header").style.top = "-50px";
+		    document.querySelector("header").style.top = "auto";
+		    document.querySelector("header").style.transition = "all 2s";
+		  }
+		  prevScrollpos = currentScrollPos;
+		}
+
+	</script>
+
+	<!-- <script type="text/javascript">
+		var prevScrollpos = window.pageYOffset;
+		window.onscroll = function() {
+		var currentScrollPos = window.pageYOffset;
+		  if (prevScrollpos > currentScrollPos) {
+		    document.querySelector("header").style.top = "0";
+		  } else {
+		    document.querySelector("header").style.top = "-19px";
+		  }
+		  prevScrollpos = currentScrollPos;
+		}
+
+	</script> -->
+
+	
+
+	<script type="text/javascript"> 
+    var mobile = (/iphone|ipod|android|blackberry|mini|windows\sce|palm/i.test(navigator.userAgent.toLowerCase()));  
+    if (mobile) { 
+        // alert("MOBILE DEVICE!!");
+        $('.hide-icons-on-mobile').css('display', 'none'); // OR you can use $('.navWrap').hide();
+    } 
+    else 
+    { 
+       // alert("NOT A MOBILE DEVICE!!"); 
+    }
+	</script> 
+
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', () => {
+		  "use strict";
+
+		  /**
+		   * Sticky header on scroll
+		   */
+		  const selectHeader = document.querySelector('#header');
+		  if (selectHeader) {
+		    document.addEventListener('scroll', () => {
+		      window.scrollY > 100 ? selectHeader.classList.add('sticked') : selectHeader.classList.remove('sticked');
+		    });
+		  }
+
+		  /**
+		   * Navbar links active state on scroll
+		   */
+		  let navbarlinks = document.querySelectorAll('#navbar a');
+
+		  function navbarlinksActive() {
+		    navbarlinks.forEach(navbarlink => {
+
+		      if (!navbarlink.hash) return;
+
+		      let section = document.querySelector(navbarlink.hash);
+		      if (!section) return;
+
+		      let position = window.scrollY + 200;
+
+		      if (position >= section.offsetTop && position <= (section.offsetTop + section.offsetHeight)) {
+		        navbarlink.classList.add('active');
+		      } else {
+		        navbarlink.classList.remove('active');
+		      }
+		    })
+		  }
+		  window.addEventListener('load', navbarlinksActive);
+		  document.addEventListener('scroll', navbarlinksActive);
+
+		  /**
+		   * Mobile nav toggle
+		   */
+		  const mobileNavShow = document.querySelector('.mobile-nav-show');
+		  const mobileNavHide = document.querySelector('.mobile-nav-hide');
+
+		  document.querySelectorAll('.mobile-nav-toggle').forEach(el => {
+		    el.addEventListener('click', function(event) {
+		      event.preventDefault();
+		      mobileNavToogle();
+		    })
+		  });
+
+		  function mobileNavToogle() {
+		    document.querySelector('body').classList.toggle('mobile-nav-active');
+		    mobileNavShow.classList.toggle('d-none');
+		    mobileNavHide.classList.toggle('d-none');
+		  }
+
+		  /**
+		   * Hide mobile nav on same-page/hash links
+		   */
+		  document.querySelectorAll('#navbar a').forEach(navbarlink => {
+
+		    if (!navbarlink.hash) return;
+
+		    let section = document.querySelector(navbarlink.hash);
+		    if (!section) return;
+
+		    navbarlink.addEventListener('click', () => {
+		      if (document.querySelector('.mobile-nav-active')) {
+		        mobileNavToogle();
+		      }
+		    });
+
+		  });
+
+		  /**
+		   * Toggle mobile nav dropdowns
+		   */
+		  const navDropdowns = document.querySelectorAll('.navbar .dropdown > a');
+
+		  navDropdowns.forEach(el => {
+		    el.addEventListener('click', function(event) {
+		      if (document.querySelector('.mobile-nav-active')) {
+		        event.preventDefault();
+		        this.classList.toggle('active');
+		        this.nextElementSibling.classList.toggle('dropdown-active');
+
+		        let dropDownIndicator = this.querySelector('.dropdown-indicator');
+		        dropDownIndicator.classList.toggle('bi-chevron-up');
+		        dropDownIndicator.classList.toggle('bi-chevron-down');
+		      }
+		    })
+		  });
+
+		});
+	</script>
+
+</body>
+</html>
